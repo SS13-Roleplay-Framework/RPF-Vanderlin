@@ -41,6 +41,7 @@
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT)
 	w_class = WEIGHT_CLASS_TINY
 	tastes = list("sweetness and spiderwebs" = 1)
+	faretype = FARE_FINE
 	eat_effect = null
 	rotprocess = null
 
@@ -55,6 +56,7 @@
 	tastes = list("dried fruit" = 1)
 	foodtype = GRAIN
 	eat_effect = null
+	faretype = FARE_POOR
 	rotprocess = null
 
 /obj/item/reagent_containers/food/snacks/rogue/raisins/On_Consume(mob/living/eater)
@@ -96,6 +98,7 @@
 	slice_path = /obj/item/reagent_containers/food/snacks/rogue/meat/salami/slice
 	tastes = list("salted meat" = 1)
 	rotprocess = null
+	faretype = FARE_POOR
 	slice_sound = TRUE
 
 /obj/item/reagent_containers/food/snacks/rogue/meat/salami/update_icon()
@@ -123,6 +126,7 @@
 	icon_state = "salumoi_slice"
 	fried_type = null
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_POOR)
+	faretype = FARE_NEUTRAL
 	bitesize = 1
 	tastes = list("salted meat" = 1)
 
@@ -136,6 +140,7 @@
 	bitesize = 5
 	slice_path = null
 	tastes = list("salted meat" = 1)
+	faretype = FARE_POOR
 	rotprocess = null
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_NUTRITIOUS)
 
@@ -162,6 +167,7 @@
 	slice_path = null
 	tastes = list("salted meat" = 1)
 	rotprocess = null
+	faretype = FARE_POOR
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_NUTRITIOUS)
 	dropshrink = 0.6
 
@@ -178,6 +184,7 @@
 	bitesize = 4
 	slice_path = /obj/item/reagent_containers/food/snacks/fat/salo/slice
 	slices_num = 4
+	faretype = FARE_POOR
 	slice_batch = FALSE
 	slice_sound = TRUE
 	eat_effect = null
@@ -280,6 +287,7 @@
 	slice_path = /obj/item/reagent_containers/food/snacks/butterslice
 	slices_num = 6
 	slice_batch = FALSE
+	faretype = FARE_IMPOVERISHED
 	bitesize = 6
 	slice_sound = TRUE
 
@@ -309,6 +317,7 @@
 	name = "butter"
 	desc = ""
 	foodtype = DAIRY
+	faretype = FARE_IMPOVERISHED
 	list_reagents = list(/datum/reagent/consumable/nutriment = 1)
 
 
@@ -473,6 +482,7 @@
 	rotprocess = SHELFLIFE_LONG
 	slices_num = 6
 	slice_batch = TRUE
+	faretype = FARE_POOR
 	slice_path = /obj/item/reagent_containers/food/snacks/rogue/cheddarwedge
 	become_rot_type = /obj/item/reagent_containers/food/snacks/rogue/cheddar/aged
 	slice_sound = TRUE
@@ -482,6 +492,7 @@
 	icon_state = "blue_cheese"
 	slice_path = /obj/item/reagent_containers/food/snacks/rogue/cheddarwedge/aged
 	become_rot_type = null
+	faretype = FARE_FINE
 	rotprocess = null
 	sellprice = 60
 
@@ -499,6 +510,7 @@
 	slice_path = /obj/item/reagent_containers/food/snacks/rogue/cheddarslice
 	become_rot_type = /obj/item/reagent_containers/food/snacks/rogue/cheddarwedge/aged
 	baitpenalty = 0
+	faretype = FARE_FINE
 	isbait = TRUE
 	fishloot = list(/obj/item/reagent_containers/food/snacks/fish/carp = 10,
 					/obj/item/reagent_containers/food/snacks/fish/eel = 5,
@@ -511,6 +523,7 @@
 	slice_path = /obj/item/reagent_containers/food/snacks/rogue/cheddarslice/aged
 	become_rot_type = null
 	rotprocess = null
+	faretype = FARE_FINE
 	sellprice = 10
 
 /obj/item/reagent_containers/food/snacks/rogue/cheddarslice
@@ -527,6 +540,7 @@
 	become_rot_type = null
 	baitpenalty = 0
 	isbait = TRUE
+	faretype = FARE_FINE
 	fishloot = list(/obj/item/reagent_containers/food/snacks/fish/carp = 10,
 					/obj/item/reagent_containers/food/snacks/fish/eel = 5,
 					/obj/item/reagent_containers/food/snacks/fish/shrimp = 3)
@@ -536,6 +550,6 @@
 	icon_state = "blue_cheese_slice"
 	become_rot_type = null
 	rotprocess = null
-
+	faretype = FARE_FINE
 
 

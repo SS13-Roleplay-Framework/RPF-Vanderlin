@@ -127,6 +127,25 @@
 
 	return damage
 
+/mob/living/carbon/human/proc/is_noble()
+	var/noble = FALSE
+	if (job in GLOB.noble_positions)
+		noble = TRUE
+	if (HAS_TRAIT(src, TRAIT_NOBLE))
+		noble = TRUE
+
+	return noble
+
+	// RPF EDIT - Port from https://github.com/GeneralPantsuIsBadAtCoding/Azure-Peak/pull/780/
+
+/mob/living/carbon/human/proc/is_yeoman()
+	return FALSE // RPF EDIT - REENABLE LATER ON WHEN WE HAVE OUR JOBS SORTED OUT
+	//return job in GLOB.yeoman_positions
+
+/mob/living/carbon/human/proc/is_courtier()
+	return FALSE // RPF EDIT - REENABLE LATER ON WHEN WE HAVE OUR JOBS SORTED OUT
+	//return job in GLOB.courtier_positions
+
 /*
 * Family Tree subsystem helpers
 * I was tired of editing indvidual values
