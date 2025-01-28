@@ -2,7 +2,7 @@
 	name = "skellyworldsiege"
 	typepath = /datum/round_event/rogue/worldsiege
 	weight = 99
-	max_occurrences = 999
+	max_occurrences = 0
 	min_players = 4
 	req_omen = FALSE
 	todreq = list("dusk", "night")

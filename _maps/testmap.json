@@ -1,0 +1,9 @@
+{
+    "map_name": "Testmap",
+    "map_path": "map_files/testmap",
+    "map_file": "testmap.dmm",
+	"traits": [{"Up": true, "Turf Weather Effects": true}],
+	"minetype": null,
+	"space_empty_levels": 0,
+	"space_ruin_levels": 0
+}

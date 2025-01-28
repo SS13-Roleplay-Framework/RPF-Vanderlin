@@ -89,11 +89,22 @@ img {
 	-ms-interpolation-mode: nearest-neighbor;
 	image-rendering: pixelated;
 }
+
 img.icon {
 	height: 1em;
-	min-height: 16px;
+	min-height: 1em;
 	width: auto;
 	vertical-align: bottom;
+}
+
+img.nosize {
+	image-rendering: crisp-edges;
+	-ms-interpolation-mode: bicubic;
+	vertical-align: bottom;
+}
+
+img.nosizemargin {
+	margin-top: 2px;
 }
 
 .r:before { /* "repeated" badge class for combined messages */

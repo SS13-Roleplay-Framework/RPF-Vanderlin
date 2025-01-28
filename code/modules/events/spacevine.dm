@@ -1,9 +1,10 @@
 /datum/round_event_control/spacevine // rogue version in vines.dm, uses below round_event/
 	name = "Spacevine"
 	typepath = /datum/round_event/spacevine
-	weight = 15
-	max_occurrences = 3
-	min_players = 10
+	weight = 30
+	max_occurrences = 0
+	earliest_start = 10 MINUTES
+	min_players = 0
 
 /datum/round_event/spacevine/start()
 	var/list/turfs = list() //list of all the empty floor turfs in the hallway areas

@@ -9,14 +9,14 @@ SUBSYSTEM_DEF(events)
 	var/list/currentrun = list()
 
 	var/scheduled = 0			//The next world.time that a naturally occuring random event can be selected.
-	var/frequency_lower = 1800	//3 minutes lower bound.
-	var/frequency_upper = 3000	//10 minutes upper bound. Basically an event will happen every 3 to 10 minutes.
+	var/frequency_lower = 25 SECONDS	//3 minutes lower bound.
+	var/frequency_upper = 2 MINUTES	//10 minutes upper bound. Basically an event will happen every 3 to 10 minutes.
 
 	var/list/holidays			//List of all holidays occuring today or null if no holidays
 	var/wizardmode = FALSE
 
 /datum/controller/subsystem/events/Initialize(time, zlevel)
-	for(var/type in typesof(/datum/round_event_control/rogue))
+	for(var/type in typesof(/datum/round_event_control/))
 		var/datum/round_event_control/E = new type()
 		if(!E.typepath)
 			continue				//don't want this one! leave it for the garbage collector
@@ -59,7 +59,6 @@ SUBSYSTEM_DEF(events)
 	set waitfor = FALSE	//for the admin prompt
 	if(!CONFIG_GET(flag/allow_random_events))
 		return
-
 	var/gamemode = SSticker.mode.config_tag
 	var/players_amt = get_active_player_count(alive_check = 1, afk_check = 1, human_check = 1)
 	// Only alive, non-AFK human players count towards this.

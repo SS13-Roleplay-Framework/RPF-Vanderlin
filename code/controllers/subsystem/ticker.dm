@@ -570,6 +570,10 @@ SUBSYSTEM_DEF(ticker)
 	for(var/I in livings)
 		var/mob/living/L = I
 		L.notransform = FALSE
+		spawn(3 SECONDS)
+			L.intro_area(get_area(L))
+			spawn(9 SECONDS)
+				L.play_screen_text("Name: [L.real_name]\nAssignment: [L.mind.assigned_role]", alert = /atom/movable/screen/text/screen_text/typewriter)
 
 /datum/controller/subsystem/ticker/proc/send_tip_of_the_round()
 	return

@@ -287,6 +287,8 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 	if(!client)
 		return
 	mind.areas_entered += A.first_time_text
+	client.show_location_blurb(2 SECONDS, 1.5, 35, "typewriter_high", 0, 10, "typewriter_space", 5, 85, "typewriter_end", FALSE, FALSE, A.first_time_text)
+/*
 	var/atom/movable/screen/area_text/T = new()
 	client.screen += T
 	T.maptext = {"<span style='vertical-align:top; text-align:center;
@@ -300,6 +302,7 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 	playsound_local(src, 'sound/misc/area.ogg', 100, FALSE)
 	animate(T, alpha = 255, time = 10, easing = EASE_IN)
 	addtimer(CALLBACK(src, PROC_REF(clear_area_text), T), 35)
+*/
 
 /mob/living/proc/clear_area_text(atom/movable/screen/A)
 	if(!A)

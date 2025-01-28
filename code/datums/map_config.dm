@@ -22,6 +22,8 @@
 	var/space_ruin_levels = 7
 	var/space_empty_levels = 1
 
+	var/jobs = list("Feldsher")
+
 /proc/load_map_config(filename = "data/next_map.json", default_to_box, delete_after, error_if_missing = TRUE)
 	testing("loading map config [filename]")
 	var/datum/map_config/config = new
@@ -64,6 +66,7 @@
 	map_name = json["map_name"]
 	CHECK_EXISTS("map_path")
 	map_path = json["map_path"]
+
 
 	map_file = json["map_file"]
 	// "map_file": "dun_manor.dmm"

@@ -18,7 +18,7 @@
 	var/holidayID = ""				//string which should be in the SSeventss.holidays list if you wish this event to be holiday-specific
 									//anything with a (non-null) holidayID which does not match holiday, cannot run.
 	var/wizardevent = FALSE
-	var/alert_observers = FALSE		//should we let the ghosts and admins know this event is firing
+	var/alert_observers = TRUE		//should we let the ghosts and admins know this event is firing
 									//should be disabled on events that fire a lot
 
 	var/list/gamemode_blacklist = list() // Event won't happen in these gamemodes

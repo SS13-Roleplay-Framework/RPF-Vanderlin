@@ -477,7 +477,7 @@ All foods are distributed among various categories. Use common sense.
 				reagents.add_reagent(r_id, amount)
 
 /obj/item/reagent_containers/food/snacks/proc/slice(obj/item/W, mob/user)
-	if((slices_num <= 0 || !slices_num) || !slice_path) //is the food sliceable?
+	if((slices_num <= 1 || !slices_num) || !slice_path) //is the food sliceable? // RPF EDIT - RAISED TO 1
 		return FALSE
 
 	if ( \

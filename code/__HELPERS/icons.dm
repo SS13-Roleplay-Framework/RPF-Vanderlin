@@ -1085,7 +1085,7 @@ GLOBAL_LIST_INIT(freon_color_matrix, list("#2E5E69", "#60A2A8", "#A1AFB1", rgb(0
 	var/list/partial = splittext(iconData, "{")
 	return replacetext(copytext(partial[2], 3, -5), "\n", "")
 
-/proc/icon2html(thing, target, icon_state, dir, frame = 1, moving = FALSE)
+/proc/icon2html(thing, target, icon_state, dir, frame = 1, moving = FALSE, realsize = FALSE, other_classes, w, h)
 	if (!thing)
 		return
 
@@ -1138,7 +1138,12 @@ GLOBAL_LIST_INIT(freon_color_matrix, list("#2E5E69", "#60A2A8", "#A1AFB1", rgb(0
 			continue
 		SSassets.transport.send_assets(thing2?.client, key)
 
-	return "<img class='icon icon-[icon_state]' src='[SSassets.transport.get_asset_url(key)]'>"
+	if(realsize)
+		return "<img class='nosize icon-[icon_state] [other_classes]' style='width:[I.Width()]px;height:[I.Height()]px;min-height:[I.Height()]px' src=\"[url_encode(key)]\">"
+	if(w && h)
+		return "<img class='nosize icon-[icon_state] [other_classes]' style='width:[w]px;height:[h]px;min-height:[h]px' src=\"[url_encode(key)]\">"
+
+	return "<img class='icon icon-[icon_state] [other_classes]' src=\"[url_encode(key)]\">"
 
 /proc/icon2base64html(thing)
 	if (!thing)

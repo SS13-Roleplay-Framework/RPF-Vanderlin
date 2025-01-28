@@ -259,3 +259,12 @@
 /turf/closed/indestructible/wooddark/mast
 	name = "mast"
 	color = "#a6a68b"
+
+/turf/closed/indestructible/stonebig
+	name = "wall"
+	desc = ""
+	icon = 'icons/turf/rpf/bigwall.dmi'
+	icon_state = "walltest"
+
+/turf/closed/indestructible/stonebig/update_icon()
+	return FALSE

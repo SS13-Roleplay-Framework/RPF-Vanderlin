@@ -2,7 +2,7 @@
 	name = "Skeleton Invasion"
 	typepath = /datum/round_event/rogue/skellyinvade
 	weight = 10
-	max_occurrences = 999
+	max_occurrences = 0
 	min_players = 0
 	req_omen = TRUE
 	todreq = list("night")

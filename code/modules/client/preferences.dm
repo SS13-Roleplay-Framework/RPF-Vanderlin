@@ -909,7 +909,6 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 /datum/preferences/proc/SetChoices(mob/user, limit = 15, list/splitJobs = list("Captain", "Priest", "Merchant", "Butler", "Village Elder"), widthPerColumn = 295, height = 620) //295 620
 	if(!SSjob)
 		return
-
 	//limit - The amount of jobs allowed per column. Defaults to 17 to make it look nice.
 	//splitJobs - Allows you split the table by job. You can make different tables for each department by including their heads. Defaults to CE to make it look nice.
 	//widthPerColumn - Screen's width for every column.
@@ -934,6 +933,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 		HTML += "<table width='100%' cellpadding='1' cellspacing='0'>"
 		var/index = -1
 
+
 		//The job before the current job. I only use this to get the previous jobs color when I'm filling in blank rows.
 		var/datum/job/lastJob
 		for(var/datum/job/job in sortList(SSjob.occupations, GLOBAL_PROC_REF(cmp_job_display_asc)))
@@ -951,29 +951,31 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 					//If the cells were broken up by a job in the splitJob list then it will fill in the rest of the cells with
 					//the last job's selection color. Creating a rather nice effect.
 					for(var/i = 0, i < (limit - index), i += 1)
-						HTML += "<tr bgcolor='#000000'><td width='60%' align='right'>&nbsp</td><td>&nbsp</td></tr>"
+						HTML += "<tr bgcolor='#000'><td width='60%' align='right'>&nbsp</td><td>&nbsp</td></tr>"
 				HTML += "</table></td><td width='20%'><table width='100%' cellpadding='1' cellspacing='0'>"
 				index = 0
 
 			if(job.title in splitJobs)
-				HTML += "<tr bgcolor='#000000'><td width='60%' align='right'><hr></td></tr>"
+				HTML += "<tr bgcolor='#000'><td width='60%' align='right'><hr></td></tr>"
 
-			HTML += "<tr bgcolor='#000000'><td width='60%' align='right'>"
+			HTML += "<tr bgcolor='[job.selection_color]'><td width='60%' align='right'>"
 			var/rank = job.title
-			var/used_name = "[job.title]"
+			var/used_name = "<font color='black'>[job.title]</font>"
 			if(gender == FEMALE && job.f_title)
-				used_name = "[job.f_title]"
+				used_name = "<font color='black'>[job.f_title]</font>"
+			if(job.bold_name)
+				used_name = "<b>[used_name]</b>"
 			lastJob = job
 			if(is_role_banned(user.ckey, job.title))
 				HTML += "[used_name]</td> <td><a href='?_src_=prefs;bancheck=[rank]'> BANNED</a></td></tr>"
 				continue
 			var/required_playtime_remaining = job.required_playtime_remaining(user.client)
 			if(required_playtime_remaining)
-				HTML += "[used_name]</td> <td><font color=red> \[ [get_exp_format(required_playtime_remaining)] as [job.get_exp_req_type()] \] </font></td></tr>"
+				HTML += "[used_name]</td> <td><font color=black> \[ [get_exp_format(required_playtime_remaining)] as [job.get_exp_req_type()] \] </font></td></tr>"
 				continue
 			if(!job.player_old_enough(user.client))
 				var/available_in_days = job.available_in_days(user.client)
-				HTML += "[used_name]</td> <td><font color=red> \[IN [(available_in_days)] DAYS\]</font></td></tr>"
+				HTML += "[used_name]</td> <td><font color=black> \[IN [(available_in_days)] DAYS\]</font></td></tr>"
 				continue
 			if(CONFIG_GET(flag/usewhitelist))
 				if(job.whitelist_req && (!user.client.whitelisted()))
@@ -983,19 +985,19 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 				HTML += "<font color=#a59461>[used_name]</font></td> <td> </td></tr>"
 				continue
 			if(get_playerquality(user.ckey) < job.min_pq)
-				HTML += "<font color=#a36c63>[used_name] (Min PQ: [job.min_pq])</font></td> <td> </td></tr>"
+				HTML += "<font color=#4d4d4d>[used_name] (Min PQ: [job.min_pq])</font></td> <td> </td></tr>"
 				continue
 			if(length(job.allowed_ages) && !(user.client.prefs.age in job.allowed_ages))
-				HTML += "<font color=#a36c63>[used_name]</font></td> <td> </td></tr>"
+				HTML += "<font color=#4d4d4d>[used_name]</font></td> <td> </td></tr>"
 				continue
 			if(length(job.allowed_races) && !(user.client.prefs.pref_species.name in job.allowed_races))
-				HTML += "<font color=#a36c63>[used_name]</font></td> <td> </td></tr>"
+				HTML += "<font color=#4d4d4d>[used_name]</font></td> <td> </td></tr>"
 				continue
 			if(length(job.allowed_patrons) && !(user.client.prefs.selected_patron.type in job.allowed_patrons))
-				HTML += "<font color=#a36c63>[used_name]</font></td> <td> </td></tr>"
+				HTML += "<font color=#4d4d4d>[used_name]</font></td> <td> </td></tr>"
 				continue
 			if(length(job.allowed_sexes) && !(user.client.prefs.gender in job.allowed_sexes))
-				HTML += "<font color=#a36c63>[used_name]</font></td> <td> </td></tr>"
+				HTML += "<font color=#4d4d4d>[used_name]</font></td> <td> </td></tr>"
 				continue
 //			if((job_preferences[SSjob.overflow_role] == JP_LOW) && (rank != SSjob.overflow_role) && !is_banned_from(user.ckey, SSjob.overflow_role))
 //				HTML += "<font color=orange>[rank]</font></td><td></td></tr>"
@@ -1009,6 +1011,9 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 
 <style>
 
+.jobname {
+	color: black;
+}
 
 .tutorialhover {
 	position: relative;
@@ -1021,7 +1026,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 	visibility: hidden;
 	width: 280px;
 	background-color: black;
-	color: #e3c06f;
+	color: black;
 	text-align: center;
 	border-radius: 6px;
 	padding: 5px 0;

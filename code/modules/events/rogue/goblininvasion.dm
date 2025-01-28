@@ -2,7 +2,7 @@
 	name = "Gob Invasion"
 	typepath = /datum/round_event/rogue/gobinvade
 	weight = 10
-	max_occurrences = 999
+	max_occurrences = 0
 	min_players = 0
 	req_omen = TRUE
 	earliest_start = 35 MINUTES

@@ -84,6 +84,8 @@
 
 	var/f_title = null
 
+	var/bold_name = FALSE
+
 	var/job_greet_text = TRUE
 	var/tutorial = null
 
@@ -328,6 +330,12 @@
 	return TRUE
 
 /datum/job/proc/map_check()
+#ifdef JOB_WHITELIST
+	if(is_string_in_list(src.title, JOB_WHITELIST))
+		return TRUE
+	else
+		return FALSE
+#endif
 	return TRUE
 
 /datum/outfit/job
