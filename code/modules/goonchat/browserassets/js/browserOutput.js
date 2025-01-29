@@ -365,7 +365,8 @@ function output(message, flag) {
 	var trimmed_message = entry.textContent || entry.innerText || "";
 
 	var handled = false;
-	if (opts.messageCombining) {
+	if (opts.messageCombining) {opts.messageCombining = false}
+		/*
 		var lastmessages = $messages.children('div.entry:last-child').last();
 		if (lastmessages.length && $last_message && $last_message == trimmed_message) {
 			var badge = lastmessages.children('.r').last();
@@ -389,7 +390,7 @@ function output(message, flag) {
 			handled = true;
 		}
 	}
-
+		*/
 	if (!handled) {
 		//Actually append the message
 		entry.className = 'entry';
@@ -779,7 +780,7 @@ $(function() {
 	else{
 		$('#adminMusic').prop('volume', opts.defaultMusicVolume / 100);
 	}
-
+/*
 	if (savedConfig.smessagecombining) {
 		if (savedConfig.smessagecombining == 'false') {
 			opts.messageCombining = false;
@@ -800,7 +801,7 @@ $(function() {
 			opts.clientData = dataJ;
 		}
 	})();
-
+*/
 
 	/*****************************************
 	*
@@ -1112,12 +1113,12 @@ $(function() {
 			opts.volumeUpdating = true;
 		}
 	});
-
+/*
 	$('#toggleCombine').click(function(e) {
 		opts.messageCombining = !opts.messageCombining;
 		setCookie('messagecombining', (opts.messageCombining ? 'true' : 'false'), 365);
 	});
-
+*/
 	$('img.icon').error(iconError);
 
 

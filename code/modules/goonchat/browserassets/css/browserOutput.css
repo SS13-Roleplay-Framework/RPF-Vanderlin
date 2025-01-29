@@ -11,7 +11,7 @@ html, body {
 }
 body {
 	background: #000000;
-	font-family: Pterra;
+	font-family: DINPro;
 	font-size: 13px;
 	color: #c9c1ba;
 	line-height: 1.2;
@@ -74,6 +74,99 @@ body {
   font-family: "Emperialisme";
   src: url('lupian.ttf') format('truetype');
 }
+
+
+/* FONTS //AW// */
+
+@font-face {
+	font-family: "AeroMaticsDisplay";
+	src: url('aero_matics_display.ttf') format('truetype');
+  }
+
+  @font-face {
+	font-family: "Alien LeagueIICondensed";
+	src: url('alienleagueii condensed condensed.ttf') format('truetype');
+  }
+
+  @font-face {
+	font-family: "AlienLeagueII";
+	src: url('alienleagueii.ttf') format('truetype');
+  }
+
+  @font-face {
+	font-family: "Bahnschrift";
+	src: url('bahnschrift.ttf') format('truetype');
+  }
+
+  @font-face {
+	font-family: "BrothersRegular";
+	src: url('brothers regular.ttf') format('truetype');
+  }
+
+  @font-face {
+	font-family: "Digital-7";
+	src: url('digital-7.ttf') format('truetype');
+  }
+
+  @font-face {
+	font-family: "DINPro";
+	src: url('dinpro.ttf') format('truetype');
+  }
+
+  @font-face {
+	font-family: "MailartStamp";
+	src: url('mailartrubberstampregular.ttf') format('truetype');
+  }
+
+  @font-face {
+	font-family: "Modes";
+	src: url('modes.ttf') format('truetype');
+  }
+
+  @font-face {
+	font-family: "NostromoReg";
+	src: url('nostromoregular-medium.ttf') format('truetype');
+  }
+
+  @font-face {
+	font-family: "NotoSansJP";
+	src: url('notosansjp-regular.ttf') format('truetype');
+  }
+
+  @font-face {
+	font-family: "Orwell";
+	src: url('orwell.ttf') format('truetype');
+  }
+
+  @font-face {
+	font-family: "PredatorNLGM";
+	src: url('predator-nlgm.ttf') format('truetype');
+  }
+
+  @font-face {
+	font-family: "Purista";
+	src: url('purista-medium.ttf') format('truetype');
+  }
+
+  @font-face {
+	font-family: "RajuLight";
+	src: url('raju-light.ttf') format('truetype');
+  }
+
+  @font-face {
+	font-family: "RobotoItalic";
+	src: url('robotitalic.ttf') format('truetype');
+  }
+
+  @font-face {
+	font-family: "TifaxText";
+	src: url('tifaxtext.ttf') format('truetype');
+  }
+
+  @font-face {
+	font-family: "VT323Regular";
+	src: url('vt323-regular.ttf') format('truetype');
+  }
 
 /* */
 
@@ -236,7 +329,7 @@ a.popt {text-decoration: none;}
 	position: fixed;
 	top: 50%;
 	left: 50%;
-	background: #ddd;
+	background: #000000;
 }
 .popup .close {
 	position: absolute;
@@ -309,28 +402,28 @@ a.popt {text-decoration: none;}
 *
 ******************************************/
 
-body					{word-wrap: break-word; overflow-x: hidden; overflow-y: scroll; color: #c9c1ba; font-size: 16px; font-family: "Pterra";}
+body					{word-wrap: break-word; overflow-x: hidden; overflow-y: scroll; color: #c9c1ba; font-size: 16px; font-family: DINPro;}
 
-h1, h2, h3, h4, h5, h6	{color: #c9c1ba;	font-family: Pterra;}
+h1, h2, h3, h4, h5, h6	{color: #c9c1ba;	font-family: DINPro;}
 
-em						{font-style: normal;	font-weight: bold; font-family: Pterra;}
+em						{font-style: normal;	font-weight: bold; font-family: DINPro;}
 
 a:link						{color: #ae83cb;	font-weight: bold;}
 
-.motd					{color: #638500;	font-family: Pterra;}
+.motd					{color: #638500;	font-family: DINPro;}
 .motd h1, .motd h2, .motd h3, .motd h4, .motd h5, .motd h6
 	{color: #638500;	text-decoration: underline;}
 .motd a, .motd a:link, .motd a:visited, .motd a:active, .motd a:hover
 	{color: #638500;}
-h1.alert, h2.alert	{color: #c9c1ba;font-family: Pterra, TrueType;}
+h1.alert, h2.alert	{color: #c9c1ba;font-family: DINPro, TrueType;}
 .italics				{font-style: italic;}
 
 .bold					{font-weight: bold;}
 
 .prefix					{font-weight: bold;}
 
-.ooc					{color: #c5c5c5;	font-weight: bold; font-family: Pterra;}
-.adminobserverooc		{color: #cca300;	font-weight: bold; font-family: Pterra;}
+.ooc					{color: #c5c5c5;	font-weight: bold; font-family: DINPro;}
+.adminobserverooc		{color: #cca300;	font-weight: bold; font-family: DINPro;}
 .adminooc				{color: #4972bc;	font-weight: bold;}
 
 .adminsay				{color:	#FF4500;	font-weight: bold;}
@@ -338,7 +431,8 @@ h1.alert, h2.alert	{color: #c9c1ba;font-family: Pterra, TrueType;}
 
 .name					{					font-weight: bold;}
 
-.say					{font-family: Pterra;}
+.say					{font-family: DINPro;}
+
 .deadsay				{color: #e2c1ff;}
 .binarysay				{color: #20c20e;	background-color: #000000;	display: block;}
 .binarysay a			{color: #00ff00;}
@@ -362,7 +456,10 @@ h1.alert, h2.alert	{color: #c9c1ba;font-family: Pterra, TrueType;}
 
 .alert					{color: #d82020;}
 
-.emote					{color: #b1bb9f; font-size: 75%;}
+.emote					{color: #AEBFAD;} /* font size used to be 75% */
+
+.emote:nth-child(2n)	{color: #a3c78c;}
+/*{color: #b1bb9f; font-size: 75%;}*/
 
 .crit					{color: #c71d76;}
 .userdanger				{color: #c71d76;	font-weight: bold;	font-size: 120%;}
@@ -431,7 +528,9 @@ h1.alert, h2.alert	{color: #c9c1ba;font-family: Pterra, TrueType;}
 .papyrus				{font-family: "Papyrus", cursive, sans-serif;}
 .robot					{font-family: "Courier New", cursive, sans-serif;}
 
-.human 					{font-family: "Honoka Mincho", "Pterra";}
+.human 					{font-family: DINPro;}
+.human:nth-child(2n) 	{color: #b3aeaa;}
+
 .elf					{font-family: "Dauphin", cursive, "Pterra";}
 .dwarf 					{font-family: "MasonAlternate", "Pterra";}
 .sandspeak 				{font-family: "Arabolical", "Pterra";}
@@ -484,6 +583,10 @@ h1.alert, h2.alert	{color: #c9c1ba;font-family: Pterra, TrueType;}
 .love_mid					{color: #e9a8d1;	font-size: 75%;}
 .love_high					{color: #f05ee1;	font-size: 75%;}
 .love_extreme					{color: #d146f5;	font-size: 75%;}
+
+.pa_name				{color: #a8a8a8; font-family: Purista; font-size: 18px; font-weight: bold;}
+.pa_text				{color: #156194; font-family: Purista; font-size: 18px; font-weight: bold;}
+
 /*
 @keyframes hypnocolor {
 	0%		{color: #202020;}

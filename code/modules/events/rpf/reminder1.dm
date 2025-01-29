@@ -13,5 +13,5 @@
 
 /datum/round_event/broadcast/protectors/start()
 	. = ..()
-	SSloudspeak.play_broadcast(/datum/broadcast/civil)
+	SSloudspeak.play_broadcast(/datum/broadcast/checkpoint)
 	return

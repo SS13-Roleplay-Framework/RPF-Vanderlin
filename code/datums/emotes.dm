@@ -80,7 +80,11 @@
 
 	if(!nomsg)
 		user.log_message(msg, LOG_EMOTE)
-		msg = "<b>[user]</b> " + msg
+		var/color = "#c9c1ba"
+		if(ishuman(user))
+			var/mob/living/carbon/human/H = user
+			color = H.voice_color
+		msg = span_emote("<b>·· <font color='[color]'>[user]</font></b> " + msg)
 
 	var/pitch = 1 //bespoke vary system so deep voice/high voiced humans
 	if(isliving(user))

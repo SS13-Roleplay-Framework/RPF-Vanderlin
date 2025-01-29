@@ -157,3 +157,5 @@
 #define span_warningbig(str) ("<span class='warningbig'>" + str + "</span>")
 #define span_yell(str) ("<span class='yell'>" + str + "</span>")
 #define span_yellowteamradio(str) ("<span class='yellowteamradio'>" + str + "</span>")
+#define span_speaker_name(str) ("<span class='pa_name'>" + str + "</span>")
+#define span_speaker_text(str) ("<span class='pa_text'>" + str + "</span>")

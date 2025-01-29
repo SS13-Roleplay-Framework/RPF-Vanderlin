@@ -260,11 +260,18 @@
 	name = "mast"
 	color = "#a6a68b"
 
-/turf/closed/indestructible/stonebig
+/obj/structure/stonebig
 	name = "wall"
 	desc = ""
 	icon = 'icons/turf/rpf/bigwall.dmi'
 	icon_state = "walltest"
+	plane = 1
+
+/obj/structure/stonebig/Initialize()
+	. = ..()
+	var/image/I=image(icon_state = "[initial(icon_state)]_over")
+	I.plane = 1
+	add_overlay(I)
 
 /turf/closed/indestructible/stonebig/update_icon()
 	return FALSE

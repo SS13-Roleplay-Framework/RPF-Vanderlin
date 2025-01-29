@@ -48,6 +48,28 @@
 		"undead.ttf" = 'interface/fonts/languages/undead.ttf'
 	)
 
+/datum/asset/simple/namespaced/awfonts
+    legacy = TRUE
+    assets = list(
+        "aero_matics_display.ttf" = 'interface/fonts/aw/aero_matics_display.ttf',
+        "alienleagueii-condensed-condensed.ttf" = 'interface/fonts/aw/alien league ii condensed condensed.ttf',
+        "alienleagueii.ttf" = 'interface/fonts/aw/alienleagueii.ttf',
+        "bahnschrift.ttf" = 'interface/fonts/aw/bahnschrift.ttf',
+        "brothers-regular.ttf" = 'interface/fonts/aw/brothers regular.ttf',
+        "digital-7.ttf" = 'interface/fonts/aw/digital-7.ttf',
+        "dinpro.ttf" = 'interface/fonts/aw/dinpro.ttf',
+        "mailartrubberstampregular.ttf" = 'interface/fonts/aw/mailartrubberstampregular.ttf',
+        "modes.ttf" = 'interface/fonts/aw/modes.ttf',
+        "nostromoregular-medium.ttf" = 'interface/fonts/aw/nostromoregular-medium.ttf',
+        "notosansjp-regular.ttf" = 'interface/fonts/aw/notosansjp-regular.ttf',
+        "orwell.ttf" = 'interface/fonts/aw/orwell.ttf',
+        "predator-nlgm.ttf" = 'interface/fonts/aw/predator-nlgm.ttf',
+        "purista-medium.ttf" = 'interface/fonts/aw/purista-medium.ttf',
+        "raju-light.ttf" = 'interface/fonts/aw/raju-light.ttf',
+        "robotitalic.ttf" = 'interface/fonts/aw/robotoitalic.ttf',
+        "tifaxtext.ttf" = 'interface/fonts/aw/tifaxtext.ttf',
+        "vt323-regular.ttf" = 'interface/fonts/aw/vt323-regular.ttf'
+    )
 //this exists purely to avoid meta by pre-loading all language icons.
 /datum/asset/language/register()
 	for(var/path in typesof(/datum/language))
@@ -86,7 +108,8 @@
 		/datum/asset/simple/namespaced/goonchat,
 		/datum/asset/spritesheet/goonchat,
 		/datum/asset/simple/namespaced/fontawesome,
-		/datum/asset/simple/namespaced/roguefonts
+		/datum/asset/simple/namespaced/roguefonts,
+	/datum/asset/simple/namespaced/awfonts
 	)
 
 

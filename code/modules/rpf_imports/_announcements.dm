@@ -77,11 +77,20 @@ SUBSYSTEM_DEF(loudspeak)
 	return sources
 
 /datum/controller/subsystem/loudspeak/proc/playsound_from_speakers(var/id, var/sound, var/volume, var/variance, var/range = 5)
+	if(!id == PLAY_GLOBAL)
+		for(var/obj/s in match_speakers(id))
+			playsound(s.loc, sound, volume, variance, extrarange = range, falloff = 1)
+	else
+		for(var/obj/s in AUDIOSOURCES)
+			playsound(s.loc, sound, volume, variance, extrarange = range, falloff = 1)
+
+/datum/controller/subsystem/loudspeak/proc/ping_speakers(id)
 	for(var/obj/s in match_speakers(id))
-		playsound(s.loc, sound, volume, variance, extrarange = range, falloff = 1)
+		ping_sound(s)
 
 /datum/controller/subsystem/loudspeak/proc/handle_playsound(var/datum/broadcast_template/speakdata, var/list/mobs, var/id, var/sound = null, var/volume = 100, var/vary = 0)
 	if(sound)
+		ping_speakers(id)
 		if(speakdata.broadcast_range <= PLAY_GLOBAL)
 			for(var/mob/M in GLOB.mob_list)
 				M.playsound_local(M, sound, volume, FALSE)
@@ -104,9 +113,10 @@ SUBSYSTEM_DEF(loudspeak)
 
 	if(isnull(message))
 		return
+	/*
 	if(isnull(raw))
 		raw = message
-
+	*/
 	announce(speakdata, speakers, message, mobs, speaking, raw)
 
 /datum/controller/subsystem/loudspeak/proc/announce(var/datum/broadcast_template/speakdata, speakers, message, mobs, var/datum/language/speaking=null, raw)
@@ -180,31 +190,32 @@ SUBSYSTEM_DEF(loudspeak)
 /datum/broadcast/New()
 	template = new template
 
-/datum/broadcast/king
+/datum/broadcast/checkpoint
 	dialogue = list(
-		list('sound/effects/announce_edited.ogg', null, null, " The loudspeakers suddenly come to life..", 2 SECONDS),
-		list('sound/vo/broadcast/propa1.ogg', "PA system", "coldly states,", "Today marks the day of the king's birth. Let us all take a moment to honor him. May our loyalty remain steadfast, and may his life endure for generations to come. Long live Lexanor.", 14 SECONDS),
-		list('sound/vo/broadcast/city_anthemlong_intro_01_edited.ogg', null, null, " The loudspeakers suddenly play the anthem...", 5 SECONDS)
+		list('sound/vo/broadcast/roadblocks1_start.ogg', null, null, " The loudspeakers suddenly come to life..", 1.898 SECONDS),
+		list('sound/vo/broadcast/roadblocks2.ogg', "PA system", "coldly states,", "Attention, residents. Please be advised, that transit routes through the district may experience delays as a precaution.", 9.925 SECONDS),
+		list('sound/vo/broadcast/roadblocks3.ogg', "PA system", "coldly states,", "Residents are reminded to carry identification, and to cooperate with any checkpoint personnel.", 8.519 SECONDS),
 	)
 
 
-/datum/broadcast/civil
+/datum/broadcast/curfew_end
 	dialogue = list(
-		list('sound/effects/announce_edited.ogg', null, null, " The loudspeakers suddenly come to life..", 2 SECONDS),
-		list('sound/vo/broadcast/propa2.ogg', "PA system", "coldly states,", "Attention, citizens. Compliance with the crown's protectors ensures safety. Unauthorized gatherings are strictly prohibited.", 10 SECONDS),
-		list(null, null, null, " The loudspeakers come to a sudden silence...", 5 SECONDS)
+		list('sound/vo/broadcast/curst1_start.ogg', null, null, "The loudspeakers suddenly come to life..", 2 SECONDS),
+		list('sound/vo/broadcast/curst1.ogg', "PA system", "coldly states,", "Attention, residents. The nightly curfew has been lifted.", 4.989 SECONDS),
+		list('sound/vo/broadcast/curst2.ogg', "PA system", "coldly states,", "Report any suspicious activity to the protectors.", 4.787 SECONDS),
+		list('sound/vo/broadcast/curst3_end.ogg', "PA system", "coldly states,", "Thank you, for your cooperation.", 2.566 SECONDS),
 	)
-
+/*
 /datum/broadcast/curfew // sound, name, verb, text, delay // CAN HAVE NAME AND VERB AS NULL
 	template = /datum/broadcast_template/automated/everyone
 	dialogue = list(
-		list('sound/effects/owannouncer_boop.ogg', null, null, " The loudspeakers blare to life...", 3 SECONDS),
-		list('sound/vo/broadcast/curfewsoft_01.ogg', "UNKNOWN", "coldly speaks,", "Please clear the streets, the curfew is now active. No foot traffic is allowed until curfew is lifted.", 10 SECONDS),
-		list('sound/vo/broadcast/curfewsoft_02.ogg', "UNKNOWN", "coldly speaks,", " All unneccessary visitation has been cancelled until further notice, unless you are otherwise authorized.", 11 SECONDS),
-		list('sound/vo/broadcast/curfewsoft_03.ogg', "UNKNOWN", "coldly speaks,", "Violators will be subject to interrogation, and detained when neccessary. Remember, the boldest measures are the safest.", 12 SECONDS),
+		list('sound/vo/broadcast/curst1_start.ogg', null, null, null, 2 SECONDS),
+		list('sound/vo/broadcast/curfewsoft_01.ogg', "UNKNOWN", "coldly speaks", "Please clear the streets, the curfew is now active. No foot traffic is allowed until curfew is lifted.", 10 SECONDS),
+		list('sound/vo/broadcast/curfewsoft_02.ogg', "UNKNOWN", "coldly speaks", " All unneccessary visitation has been cancelled until further notice, unless you are otherwise authorized.", 11 SECONDS),
+		list('sound/vo/broadcast/curfewsoft_03.ogg', "UNKNOWN", "coldly speaks", "Violators will be subject to interrogation, and detained when neccessary. Remember, the boldest measures are the safest.", 12 SECONDS),
 		list('sound/effects/owannouncer_boop_end.ogg', null, null, " The loudspeakers come to a sudden silence...", 5 SECONDS)
 	)
-
+*/
 /datum/controller/subsystem/loudspeak/proc/play_broadcast(var/type)
 	var/datum/broadcast/B = new type
 	B.play()
@@ -215,11 +226,15 @@ SUBSYSTEM_DEF(loudspeak)
 		for(var/obj/s in AUDIOSOURCES)
 			mobs |= SSloudspeak.get_mobs_around_obj(template.broadcast_range, s)
 		SSloudspeak.handle_playsound(template, mobs, id, get_sound(i), 85, 0)
-		var/text = "[get_name(i)] [get_verb(i)], \"[get_text(i)]\""
-		if(!get_name(i) || !get_verb(i))
-			SSloudspeak.prep_announce(template, id, get_text(i), null, get_text(i), null, get_text(i), TRUE)
-		else
-			SSloudspeak.prep_announce(template, id, text, null, get_text(i), FALSE)
+		var/text = span_speaker_name("[get_name(i)] [get_verb(i)] \"[span_speaker_text(get_text(i))]\"")
+		var/bother = TRUE
+		if(!get_name(i) && !get_verb(i) && !get_text(i))
+			bother = FALSE
+		if(bother) // don't bother playing it if there's no text.
+			if(!get_name(i) || !get_verb(i))
+				SSloudspeak.prep_announce(template, id, "<span class='pa_text'>[get_text(i)]</span>", null)
+			else
+				SSloudspeak.prep_announce(template, id, text, null, get_text(i), FALSE)
 		sleep(get_delay(i))
 	special()
 	end()

@@ -2,12 +2,6 @@
 "a" = (
 /turf/open/floor/carpet/stellar,
 /area/rogue/outdoors/town)
-"c" = (
-/turf/closed/indestructible/stonebig{
-	icon_state = "walltest";
-	plane = -4
-	},
-/area/rogue/outdoors/town)
 "d" = (
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/outdoors/town)
@@ -24,6 +18,9 @@
 /area/rogue/outdoors/town)
 "i" = (
 /obj/structure/table/church,
+/obj/structure/stonebig{
+	pixel_y = 32
+	},
 /turf/open/floor/carpet/stellar,
 /area/rogue/outdoors/town)
 "k" = (
@@ -34,10 +31,27 @@
 	pixel_x = 0;
 	pixel_y = 6
 	},
+/obj/structure/stonebig{
+	pixel_y = 32
+	},
 /turf/open/floor/carpet/stellar,
+/area/rogue/outdoors/town)
+"l" = (
+/turf/closed/wall/mineral/rogue/stonebrick/reddish,
 /area/rogue/outdoors/town)
 "q" = (
 /obj/item/rogueore/coal,
+/turf/open/floor/carpet/stellar,
+/area/rogue/outdoors/town)
+"r" = (
+/obj/machinery/light/rogue/oven{
+	pixel_x = -1;
+	pixel_y = 31;
+	plane = -4
+	},
+/obj/structure/stonebig{
+	pixel_y = 32
+	},
 /turf/open/floor/carpet/stellar,
 /area/rogue/outdoors/town)
 "v" = (
@@ -51,12 +65,12 @@
 /obj/structure/announcementmicrophone,
 /turf/open/floor/carpet/stellar,
 /area/rogue/outdoors/town)
-"F" = (
-/obj/machinery/light/rogue/firebowl/church,
-/turf/closed/indestructible/stonebig{
-	icon_state = "walltest";
-	plane = -4
+"D" = (
+/obj/machinery/light/rogue/firebowl/church{
+	pixel_x = 17;
+	pixel_y = -2
 	},
+/turf/open/floor/carpet/stellar,
 /area/rogue/outdoors/town)
 "H" = (
 /obj/item/key/steward,
@@ -70,11 +84,21 @@
 /obj/structure/announcementspeaker,
 /turf/open/floor/carpet/stellar,
 /area/rogue/outdoors/town)
+"N" = (
+/obj/machinery/light/rogue/firebowl/church{
+	pixel_x = 16;
+	pixel_y = 24
+	},
+/turf/open/floor/carpet/stellar,
+/area/rogue/outdoors/town)
 "R" = (
 /obj/machinery/light/rogue/oven{
 	pixel_x = -1;
-	pixel_y = 31;
+	pixel_y = 64;
 	plane = -4
+	},
+/obj/structure/stonebig{
+	pixel_y = 32
 	},
 /turf/open/floor/carpet/stellar,
 /area/rogue/outdoors/town)
@@ -97,6 +121,9 @@
 /obj/structure/fluff/millstone{
 	pixel_x = 0;
 	pixel_y = 8
+	},
+/obj/structure/stonebig{
+	pixel_y = 32
 	},
 /turf/open/floor/carpet/stellar,
 /area/rogue/outdoors/town)
@@ -521,7 +548,7 @@ a
 a
 a
 a
-I
+N
 f
 a
 a
@@ -555,7 +582,7 @@ a
 a
 a
 a
-c
+a
 f
 q
 a
@@ -589,7 +616,7 @@ a
 M
 a
 a
-c
+l
 R
 T
 I
@@ -623,8 +650,8 @@ a
 a
 a
 a
-c
-R
+l
+r
 a
 a
 v
@@ -657,7 +684,7 @@ a
 A
 a
 M
-c
+l
 i
 a
 I
@@ -691,7 +718,7 @@ a
 a
 a
 a
-F
+a
 X
 a
 a
@@ -724,8 +751,8 @@ a
 a
 M
 a
-I
-c
+D
+a
 k
 a
 a
