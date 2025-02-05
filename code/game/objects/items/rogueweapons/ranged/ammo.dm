@@ -470,10 +470,7 @@
 	reagents.handle_reactions()
 	return BULLET_ACT_HIT
 
-#undef BLOWDART_DAMAGE
-#undef ARROW_DAMAGE
-#undef BOLT_DAMAGE
+
 #undef BULLET_DAMAGE
-#undef ARROW_PENETRATION
-#undef BOLT_PENETRATION
+
 #undef BULLET_PENETRATION

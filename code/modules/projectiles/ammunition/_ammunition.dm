@@ -1,7 +1,7 @@
 /obj/item/ammo_casing
 	name = "bullet casing"
 	desc = ""
-	icon = 'icons/obj/ammo.dmi'
+	icon = 'rpf/bullets_nu.dmi'
 	icon_state = "super"
 	flags_1 = CONDUCT_1
 	slot_flags = ITEM_SLOT_BELT
