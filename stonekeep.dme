@@ -1763,6 +1763,7 @@
 #include "code\modules\roguetown\roguestock\stockpile.dm"
 #include "code\modules\rpf_imports\_announcements.dm"
 #include "code\modules\rpf_imports\loudspeakers.dm"
+#include "code\modules\rpf_imports\interview\camera.dm"
 #include "code\modules\screen_alerts\_screen_alerts.dm"
 #include "code\modules\screen_alerts\atom_hud_text.dm"
 #include "code\modules\screen_alerts\gman.dm"

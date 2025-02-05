@@ -81,92 +81,92 @@ body {
 @font-face {
 	font-family: "AeroMaticsDisplay";
 	src: url('aero_matics_display.ttf') format('truetype');
-  }
+}
 
-  @font-face {
+@font-face {
 	font-family: "Alien LeagueIICondensed";
 	src: url('alienleagueii condensed condensed.ttf') format('truetype');
-  }
+}
 
-  @font-face {
+@font-face {
 	font-family: "AlienLeagueII";
 	src: url('alienleagueii.ttf') format('truetype');
-  }
+}
 
-  @font-face {
+@font-face {
 	font-family: "Bahnschrift";
 	src: url('bahnschrift.ttf') format('truetype');
-  }
+}
 
-  @font-face {
+@font-face {
 	font-family: "BrothersRegular";
 	src: url('brothers regular.ttf') format('truetype');
-  }
+}
 
-  @font-face {
+@font-face {
 	font-family: "Digital-7";
 	src: url('digital-7.ttf') format('truetype');
-  }
+}
 
-  @font-face {
+@font-face {
 	font-family: "DINPro";
 	src: url('dinpro.ttf') format('truetype');
-  }
+}
 
-  @font-face {
+@font-face {
 	font-family: "MailartStamp";
 	src: url('mailartrubberstampregular.ttf') format('truetype');
-  }
+}
 
-  @font-face {
+@font-face {
 	font-family: "Modes";
 	src: url('modes.ttf') format('truetype');
-  }
+}
 
-  @font-face {
+@font-face {
 	font-family: "NostromoReg";
 	src: url('nostromoregular-medium.ttf') format('truetype');
-  }
+}
 
-  @font-face {
+@font-face {
 	font-family: "NotoSansJP";
 	src: url('notosansjp-regular.ttf') format('truetype');
-  }
+}
 
-  @font-face {
+@font-face {
 	font-family: "Orwell";
 	src: url('orwell.ttf') format('truetype');
-  }
+}
 
-  @font-face {
+@font-face {
 	font-family: "PredatorNLGM";
 	src: url('predator-nlgm.ttf') format('truetype');
-  }
+}
 
-  @font-face {
+@font-face {
 	font-family: "Purista";
 	src: url('purista-medium.ttf') format('truetype');
-  }
+}
 
-  @font-face {
+@font-face {
 	font-family: "RajuLight";
 	src: url('raju-light.ttf') format('truetype');
-  }
+}
 
-  @font-face {
+@font-face {
 	font-family: "RobotoItalic";
 	src: url('robotitalic.ttf') format('truetype');
-  }
+}
 
-  @font-face {
+@font-face {
 	font-family: "TifaxText";
 	src: url('tifaxtext.ttf') format('truetype');
-  }
+}
 
-  @font-face {
+@font-face {
 	font-family: "VT323Regular";
 	src: url('vt323-regular.ttf') format('truetype');
-  }
+}
 
 /* */
 
