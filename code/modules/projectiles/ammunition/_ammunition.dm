@@ -1,12 +1,12 @@
 /obj/item/ammo_casing
 	name = "bullet casing"
 	desc = ""
-	icon_state = "s-casing"
+	icon = 'icons/obj/ammo.dmi'
+	icon_state = "super"
 	flags_1 = CONDUCT_1
 	slot_flags = ITEM_SLOT_BELT
 	throwforce = 0
 	w_class = WEIGHT_CLASS_TINY
-
 	var/fire_sound = null						//What sound should play when this ammo is fired
 	var/caliber = null							//Which kind of guns it can be loaded into
 	var/projectile_type = null					//The bullet type to create when New() is called
@@ -41,9 +41,9 @@
 		SSblackbox.record_feedback("tally", "station_mess_destroyed", 1, name)
 
 /obj/item/ammo_casing/update_icon()
-	..()
-	icon_state = "[initial(icon_state)]"
-	desc = ""
+    ..()
+    if (!BB)
+        icon_state = "[initial(icon_state)]_spent"
 
 //proc to magically refill a casing with a new projectile
 /obj/item/ammo_casing/proc/newshot() //For energy weapons, syringe gun, shotgun shells and wands (!).
